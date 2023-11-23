@@ -2,7 +2,7 @@ resource "aws_autoscaling_group" "eks_node_asg" {
   name                      = "eks-cluster-nodes"
   max_size                  = var.eks_asg_node_max
   min_size                  = var.eks_asg_node_min
-  vpc_zone_identifier       = [aws_subnet.example1.id, aws_subnet.example2.id]
+  vpc_zone_identifier       = [aws_subnet.private_subnet.id]
 
   launch_template {
     id      = aws_launch_template.eks_node
